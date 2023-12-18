@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>All sponsors</title>
+</head>
+<body>
+<h2>Sponsor database</h2>
+<a th:href="@{/sponsor/add}">Add new sponsor</a>
+<table>
+    <tr th:each="sponsor : ${allSponsorsFromDB}">
+        <td th:text="${sponsor.id}"></td>
+        <td th:text="${sponsor.name}"></td>
+        <td><a th:href="@{/sponsor/delete/{id}(id=${sponsor.id})}">Delete</a></td>
+        <td><a th:href="@{/sponsor/edit/{id}(id=${sponsor.id})}">Edit</a></td>
+    </tr>
+</table>
+<a th:href="@{/}">Return</a>
+</body>
+</html>

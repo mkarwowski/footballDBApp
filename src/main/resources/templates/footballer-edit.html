@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Footballer</title>
+</head>
+<body>
+<
+<h2>Edit footballer</h2>
+<form method="post" th:action="@{/footballer/edit/}+${fct.footballer.id}" th:object="${fct}">
+    First name
+    <div><input type="text" th:field="*{footballer.firstName}">
+        <span th:if="${#fields.hasErrors('footballer.firstName')}" th:errors="*{footballer.firstName}"></span>
+    </div>
+    Last name
+    <div><input type="text" th:field="*{footballer.lastName}">
+        <span th:if="${#fields.hasErrors('footballer.lastName')}" th:errors="*{footballer.lastName}"></span>
+    </div>
+    Year of birth
+    <div><input type="text" th:field="*{footballer.yob}">
+        <span th:if="${#fields.hasErrors('footballer.yob')}" th:errors="*{footballer.yob}"></span>
+    </div>
+    Role
+    <select name="role" th:field="*{footballer.role}">
+        <option th:each="role: ${T(pl.mkarwowski.javaee.project.domain.footballerEnums.Role).values()}"
+                th:value="${role}" th:text="${role.displayValue}">
+        </option>
+    </select>
+    Better foot
+    <select name="betterFoot" th:field="*{footballer.betterFoot}">
+        <option th:each="betterFoot: ${T(pl.mkarwowski.javaee.project.domain.footballerEnums.BetterFoot).values()}"
+                th:value="${betterFoot}" th:text="${betterFoot.displayValue}">
+        </option>
+    </select>
+    Team
+    <select name="team" th:field="*{chosenTeamID}">
+        <option th:each="team: *{teams}"
+                th:value="${team.id}" th:text="${team.name}">
+        </option>
+        <option value="0">No team
+        </option>
+    </select>
+    Date of the end of the contract
+    <input type="text" th:field="*{contract.id}">
+    <input type="text" th:field="*{contract.team.id}">
+    <div><input type="date" th:field="*{contract.expiryDate}">
+        <span th:if="${#fields.hasErrors('contract.expiryDate')}" th:errors="*{contract.expiryDate}"></span>
+    </div>
+    Sponsor
+    <select name="sponsor" th:field="*{chosenSponsorID}">
+        <option th:each="sponsor: *{sponsors}"
+                th:value="${sponsor.id}" th:text="${sponsor.name}">
+        </option>
+        <option value="0">No sponsor
+        </option>
+    </select>
+    <div><input type="submit" th:value="Submit"></div>
+</form>
+<a th:href="@{/footballer}">Return</a>
+</body>
+</html>

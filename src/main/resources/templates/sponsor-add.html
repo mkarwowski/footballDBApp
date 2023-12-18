@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Sponsor</title>
+</head>
+<body>
+<h2>Add sponsor</h2>
+<form method="post" th:action="@{/sponsor/add}" th:object="${sponsor}">
+    Team name
+    <div><input type="text" th:field="*{name}">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </div>
+    <div><input type="submit" th:value="Submit"></div>
+
+</form>
+<a th:href="@{/sponsor}">Return</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Contracts</title>
+</head>
+<body>
+<h2>Contract database</h2>
+<table>
+    <tr th:each="contract : ${allContractsFromDB}">
+        <td th:text="${contract.id}"></td>
+        <td th:text="${contract.expiryDate}"></td>
+    </tr>
+</table>
+<a th:href="@{/}">Return</a>
+</body>
+</html>

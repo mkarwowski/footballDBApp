@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>All teams</title>
+</head>
+<body>
+<h2>Team database</h2>
+<a th:href="@{/team/add}">Add new team</a>
+<table>
+    <tr th:each="team : ${allTeamsFromDB}">
+        <td th:text="${team.id}"></td>
+        <td th:text="${team.name}"></td>
+        <td th:text="${team.yof}"></td>
+        <td><a th:href="@{/team/delete/{id}(id=${team.id})}">Delete</a></td>
+        <td><a th:href="@{/team/edit/{id}(id=${team.id})}">Edit</a></td>
+        <td><a th:href="@{/team/{id}(id=${team.id})}">Show footballers</a></td>
+    </tr>
+</table>
+<a th:href="@{/}">Return</a>
+</body>
+</html>

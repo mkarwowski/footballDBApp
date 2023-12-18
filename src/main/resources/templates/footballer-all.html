@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>All Footballers</title>
+</head>
+<body>
+<h2>Footballers</h2>
+<a th:href="@{/footballer/add}">Add new footballer</a>
+<table>
+<tr th:each="footballer : ${footballers}">
+    <td th:text="${footballer.id}"></td>
+    <td th:text="${footballer.firstName}"></td>
+    <td th:text="${footballer.lastName}"></td>
+    <td th:text="${footballer.yob}"></td>
+    <td th:text="${footballer.role}"></td>
+    <td th:text="${footballer.betterFoot}"></td>
+    <td th:text="${footballer?.contract?.expiryDate}"></td>
+    <td th:text="${footballer?.contract?.team?.name}"></td>
+    <td th:text="${footballer?.sponsor?.name}"></td>
+    <td><a th:href="@{/footballer/delete/{id}(id=${footballer.id})}">Delete</a></td>
+    <td><a th:href="@{/footballer/edit/{id}(id=${footballer.id})}">Edit</a></td>
+</tr>
+</table>
+<a th:href="@{/}">Main page</a>
+</body>
+</html>

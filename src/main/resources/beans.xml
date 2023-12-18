@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="test" class="pl.mkarwowski.javaee.project.domain.Footballer">
+        <property name="firstName" value="Test"/>
+        <property name="lastName" value="Test"/>
+        <property name="yob" value="2000"/>
+        <property name="role" value="Goalkeeper"/>
+        <property name="betterFoot" value="Left"/>
+    </bean>
+
+    <bean id="test2" class="pl.mkarwowski.javaee.project.domain.Footballer">
+        <property name="firstName" value="Testowy"/>
+        <property name="lastName" value="Test"/>
+        <property name="yob" value="2002"/>
+        <property name="role" value="Attacker"/>
+        <property name="betterFoot" value="Right"/>
+    </bean>
+</beans>
